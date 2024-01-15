@@ -15,6 +15,8 @@ import dataset
 import music_x_transformers
 import representation
 import utils
+#from muspy import download_musescore_soundfont
+import muspy
 
 
 @utils.resolve_paths
@@ -106,6 +108,7 @@ def save_pianoroll(filename, music, size=None, **kwargs):
 
 def save_result(filename, data, sample_dir, encoding):
     """Save the results in multiple formats."""
+    muspy.download_musescore_soundfont()
     # Save as a numpy array
     np.save(sample_dir / "npy" / f"{filename}.npy", data)
 
